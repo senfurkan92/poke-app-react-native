@@ -5,7 +5,7 @@ export default function CardFrame({children, borderColor, bgColor}) {
     return (
         <View style={[styles.card, {
             borderColor: borderColor || colors.secondary,
-            backgroundColor: bgColor || colors.light
+            backgroundColor: bgColor || 'transparent'
         }]}>
             {children}
         </View>
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderTopRightRadius: 10,
         borderBottomLeftRadius: 10,
-        borderWidth: 2,
-        overflow: 'hidden'
-    }
+        borderWidth: 1,
+        overflow: 'hidden',
+    },
 })
