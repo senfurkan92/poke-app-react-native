@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Pressable, Image, ScrollView } from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import CardFrame from '../box/CardFrame'
 import colors from '../../constants/colors'
 import { useNavigation } from '@react-navigation/native'
@@ -10,7 +10,7 @@ export default function PokemonCard({item}) {
 
     return (
         <View style={styles.container}>
-            <Pressable onPress={() => item.detail && navigation.navigate('Detail', {name: item.name})}>
+            <TouchableOpacity onPress={() => item.detail && navigation.navigate('Detail', {name: item.name})}>
                 <CardFrame bgColor={colors[item.detail ? item.detail.types[0].type.name : 'light']} borderColor={colors.secondary}>
                     <View style={styles.card}>
                         <View style={styles.img_container}>
@@ -29,15 +29,15 @@ export default function PokemonCard({item}) {
                                 #{item.detail ? item.detail.id : '-'} {item.name.toUpperCase()}
                             </Text>
                             <Text style={{fontSize: 16, fontFamily: 'pasifico'}}>
-                                Height: {item.detail ? item.detail.height * 10: '-'} cm
+                                Height: {item.detail ? item.detail.height * 10: '...'} cm
                             </Text>
                             <Text style={{fontSize: 16, fontFamily: 'pasifico'}}>
-                                Weight: {item.detail ? item.detail.weight / 10: '-'} kg
+                                Weight: {item.detail ? item.detail.weight / 10: '...'} kg
                             </Text>
                         </View>
                     </View>
                 </CardFrame>
-            </Pressable>
+            </TouchableOpacity>
         </View>
     )
 }

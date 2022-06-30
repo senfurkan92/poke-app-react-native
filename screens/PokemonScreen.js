@@ -16,7 +16,7 @@ export default function PokemonScreen() {
     return (
         <>
             <View style={[styles.container]} >
-                <View style={{padding: 10}}>
+                <View style={styles.out_of}>
                     <Text style={{alignSelf: 'flex-end'}}>
                         {state.list.length} out of {state.count} pokemons
                     </Text>
@@ -55,5 +55,16 @@ const styles = StyleSheet.create({
         borderColor: colors.secondary,
         borderWidth: 1,
         backgroundColor: colors.light,
-    }
+    },
+    out_of: {
+        padding: 10,
+        shadowColor: colors.dark2,
+        backgroundColor: colors.light,
+        shadowOffset: {
+        width: 0,
+        height: 3
+        },
+        shadowRadius: 5,
+        shadowOpacity: 1.0,
+    },
 })
