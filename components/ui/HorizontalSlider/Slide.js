@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, StyleSheet, Image, Dimensions, ImageBackground} from 'react-native'
+import { View, TouchableHighlight, StyleSheet, Image, Dimensions, ImageBackground} from 'react-native'
 import colors from '../../../constants/colors'
 import { LinearGradient } from 'expo-linear-gradient'
 
@@ -7,13 +7,13 @@ export default function HorizontalSlider({uri, types}) {
     bgColors = bgColors.length == 1 ? [bgColors[0],bgColors[0]] : bgColors
 
     return (  
-        <TouchableOpacity onPress={() => console.log('clicked')}>
+        <TouchableHighlight>
             <LinearGradient colors={bgColors}>
                 <View style={styles.img_container}>
                     <Image style={styles.img} source={{uri}} resizeMode="contain"/>
                 </View>
             </LinearGradient>
-        </TouchableOpacity>        
+        </TouchableHighlight>        
     )
 }
 

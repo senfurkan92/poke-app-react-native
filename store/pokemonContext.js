@@ -32,6 +32,10 @@ const reducer = (state, action) => {
                 poke.detail = action.value
             }
         }; break;
+        case 'like': {
+            const poke = current.list.find(x => x.name == action.name)
+            poke.liked = !poke.liked
+        }; break;
     }
     return current
 }
@@ -67,7 +71,10 @@ export default function PokemonProvider({children})
                         // count
                         dispatch({
                             type: 'list',
-                            value: data.results
+                            value: data.results.map(x => ({
+                                ...x,
+                                liked: false
+                            }))
                         })
                         return data.results
                     })

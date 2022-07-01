@@ -5,14 +5,12 @@ import TypeScreen from '../screens/TypeScreen'
 import PokemonScreen from '../screens/PokemonScreen'
 import PokemonDetailScreen from '../screens/PokemonDetailScreen'
 import colors from '../constants/colors'
+import LikeBtn from '../components/ui/LikeBtn'
 
 const Stack = createNativeStackNavigator()
 
 
 export default function AppRouter() {
-    // const route = useRoute()
-    // console.log(route)
-
     return (
         <NavigationContainer>
             <Stack.Navigator
@@ -49,9 +47,10 @@ export default function AppRouter() {
                 <Stack.Screen 
                     name='Detail'
                     component={PokemonDetailScreen}
-                    options={({route, navigation}) => ({
-                        title: route.params.name.toUpperCase()
-                    })}                   
+                    // options={({route, navigation}) => ({
+                    //     title: route.params.name.toUpperCase(),
+                    //     headerRight: () => <LikeBtn liked={true}/>,
+                    // })}                   
                 />
             </Stack.Navigator>
         </NavigationContainer>
